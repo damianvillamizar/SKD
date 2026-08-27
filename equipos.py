@@ -11,7 +11,6 @@ def registrar_equipo():
 
     codigo = input("Código del equipo: ").strip()
 
-    # Validar que el código no exista
     for equipo in equipos:
         if equipo["codigo"].lower() == codigo.lower():
             print("Ya existe un equipo con ese código.")
