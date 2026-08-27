@@ -100,4 +100,12 @@ def registrar_prestamo():
     print("Devolución registrada correctamente.")
     print(f"Equipo {codigo_equipo} ahora está disponible.")
 
+    def generar_id_prestamo(prestamos):
+    if not prestamos:
+        return 1
+
+    ids = [prestamo["id"] for prestamo in prestamos]
+
+    return max(ids) + 1
+
 
