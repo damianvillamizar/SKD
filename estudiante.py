@@ -31,3 +31,20 @@ def registrar_estudiante():
     guardar_datos(ARCHIVO_ESTUDIANTES, estudiantes)
 
     print("Estudiante registrado correctamente.")
+
+def listar_estudiantes():
+    estudiantes = cargar_datos(ARCHIVO_ESTUDIANTES)
+
+    print("\n--- LISTA DE ESTUDIANTES ---")
+
+    if not estudiantes:
+        print("No hay estudiantes registrados.")
+        return
+
+    for estudiante in estudiantes:
+        print(
+            f"Documento: {estudiante['documento']} | "
+            f"Nombre: {estudiante['nombre']} | "
+            f"Correo: {estudiante['correo']} | "
+            f"Programa: {estudiante['programa']}"
+        )
