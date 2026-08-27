@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from Archivos import cargar_datos, guardar_datos
-from estudiante import buscar_estudiante
+from estudiante import listar_estudiantes
 from equipos import buscar_equipo, actualizar_estado_equipo
 
 
@@ -16,7 +16,7 @@ def registrar_prestamo():
     documento = input("Documento del estudiante: ").strip()
 
     
-    estudiante = buscar_estudiante(documento)
+    estudiante = listar_estudiantes()
 
     if estudiante is None:
         print("El estudiante no está registrado.")
