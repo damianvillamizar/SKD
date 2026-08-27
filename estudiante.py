@@ -11,6 +11,7 @@ def registrar_estudiante():
 
     documento = input("Documento: ").strip()
 
+    # Validar que el documento no exista
     for estudiante in estudiantes:
         if estudiante["documento"] == documento:
             print("Ya existe un estudiante con ese documento.")
@@ -31,6 +32,17 @@ def registrar_estudiante():
     guardar_datos(ARCHIVO_ESTUDIANTES, estudiantes)
 
     print("Estudiante registrado correctamente.")
+
+
+def buscar_estudiante(documento):
+    estudiantes = cargar_datos(ARCHIVO_ESTUDIANTES)
+
+    for estudiante in estudiantes:
+        if estudiante["documento"] == documento:
+            return estudiante
+
+    return None
+
 
 def listar_estudiantes():
     estudiantes = cargar_datos(ARCHIVO_ESTUDIANTES)
