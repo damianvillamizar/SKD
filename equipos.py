@@ -54,3 +54,21 @@ def actualizar_estado_equipo(codigo, nuevo_estado):
             return True
 
     return False
+
+def listar_equipos():
+    equipos = cargar_datos(ARCHIVO_EQUIPOS)
+
+    print("\n--- LISTA DE EQUIPOS ---")
+
+    if not equipos:
+        print("No hay equipos registrados.")
+        return
+
+    for equipo in equipos:
+        print(
+            f"Código: {equipo['codigo']} | "
+            f"Tipo: {equipo['tipo']} | "
+            f"Marca: {equipo['marca']} | "
+            f"Modelo: {equipo['modelo']} | "
+            f"Estado: {equipo['estado']}"
+        )
