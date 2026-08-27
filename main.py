@@ -27,7 +27,7 @@ def mostrar_menu():
 
 
 def main():
-    # Crear carpeta y archivos JSON
+   
     inicializar_archivos()
 
     while True:
