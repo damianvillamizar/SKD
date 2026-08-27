@@ -57,7 +57,7 @@ def registrar_prestamo():
     print(f"ID del préstamo: {prestamo['id']}")
 
     def registrar_devolucion():
-    prestamos = cargar_datos(ARCHIVO_PRESTAMOS)
+     prestamos = cargar_datos(ARCHIVO_PRESTAMOS)
 
     print("\n--- REGISTRAR DEVOLUCIÓN ---")
 
@@ -101,7 +101,7 @@ def registrar_prestamo():
     print(f"Equipo {codigo_equipo} ahora está disponible.")
 
     def generar_id_prestamo(prestamos):
-    if not prestamos:
+     if not prestamos:
         return 1
 
     ids = [prestamo["id"] for prestamo in prestamos]
