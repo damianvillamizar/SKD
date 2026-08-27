@@ -34,3 +34,23 @@ def registrar_equipo():
 
     print("Equipo registrado correctamente.")
 
+def buscar_equipo(codigo):
+    equipos = cargar_datos(ARCHIVO_EQUIPOS)
+
+    for equipo in equipos:
+        if equipo["codigo"].lower() == codigo.lower():
+            return equipo
+
+    return None
+
+
+def actualizar_estado_equipo(codigo, nuevo_estado):
+    equipos = cargar_datos(ARCHIVO_EQUIPOS)
+
+    for equipo in equipos:
+        if equipo["codigo"].lower() == codigo.lower():
+            equipo["estado"] = nuevo_estado
+            guardar_datos(ARCHIVO_EQUIPOS, equipos)
+            return True
+
+    return False
