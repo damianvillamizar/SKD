@@ -27,7 +27,7 @@ def mostrar_menu():
 
 
 def main():
-   
+    
     inicializar_archivos()
 
     while True:

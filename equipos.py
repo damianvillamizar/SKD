@@ -11,6 +11,7 @@ def registrar_equipo():
 
     codigo = input("Código del equipo: ").strip()
 
+    # Validar que el código no exista
     for equipo in equipos:
         if equipo["codigo"].lower() == codigo.lower():
             print("Ya existe un equipo con ese código.")
@@ -33,26 +34,6 @@ def registrar_equipo():
 
     print("Equipo registrado correctamente.")
 
-def buscar_equipo(codigo):
-    equipos = cargar_datos(ARCHIVO_EQUIPOS)
-
-    for equipo in equipos:
-        if equipo["codigo"].lower() == codigo.lower():
-            return equipo
-
-    return None
-
-
-def actualizar_estado_equipo(codigo, nuevo_estado):
-    equipos = cargar_datos(ARCHIVO_EQUIPOS)
-
-    for equipo in equipos:
-        if equipo["codigo"].lower() == codigo.lower():
-            equipo["estado"] = nuevo_estado
-            guardar_datos(ARCHIVO_EQUIPOS, equipos)
-            return True
-
-    return False
 
 def listar_equipos():
     equipos = cargar_datos(ARCHIVO_EQUIPOS)
@@ -71,3 +52,24 @@ def listar_equipos():
             f"Modelo: {equipo['modelo']} | "
             f"Estado: {equipo['estado']}"
         )
+
+
+def buscar_equipo(codigo):
+    equipos = cargar_datos(ARCHIVO_EQUIPOS)
+
+    for equipo in equipos:
+        if equipo["codigo"].lower() == codigo.lower():
+            return equipo
+
+    return None
+
+def actualizar_estado_equipo(codigo, nuevo_estado):
+    equipos = cargar_datos(ARCHIVO_EQUIPOS)
+
+    for equipo in equipos:
+        if equipo["codigo"].lower() == codigo.lower():
+            equipo["estado"] = nuevo_estado
+            guardar_datos(ARCHIVO_EQUIPOS, equipos)
+            return True
+
+    return False
