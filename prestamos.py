@@ -108,4 +108,22 @@ def registrar_prestamo():
 
     return max(ids) + 1
 
+def listar_prestamos():
+    prestamos = cargar_datos(ARCHIVO_PRESTAMOS)
+
+    print("\n--- LISTA DE PRÉSTAMOS ---")
+
+    if not prestamos:
+        print("No hay préstamos registrados.")
+        return
+
+    for prestamo in prestamos:
+        print(
+            f"ID: {prestamo['id']} | "
+            f"Estudiante: {prestamo['documento_estudiante']} | "
+            f"Equipo: {prestamo['codigo_equipo']} | "
+            f"Préstamo: {prestamo['fecha_prestamo']} | "
+            f"Devolución: {prestamo['fecha_devolucion']} | "
+            f"Estado: {prestamo['estado']}"
+        )
 
