@@ -15,11 +15,10 @@ def registrar_prestamo():
 
     documento = input("Documento del estudiante: ").strip()
 
-    
-    estudiante = listar_estudiantes()
+    estudiante = listar_estudiantes(documento)
 
     if estudiante is None:
-        print("El estudiante no está registrado.")
+        print(" El estudiante no está registrado.")
         return
 
     codigo_equipo = input("Código del equipo: ").strip()
@@ -28,12 +27,12 @@ def registrar_prestamo():
     equipo = buscar_equipo(codigo_equipo)
 
     if equipo is None:
-        print("El equipo no está registrado.")
+        print(" El equipo no está registrado.")
         return
 
     
     if equipo["estado"].lower() != "disponible":
-        print("El equipo no está disponible.")
+        print(" El equipo no está disponible.")
         return
 
     
@@ -53,18 +52,19 @@ def registrar_prestamo():
 
     guardar_datos(ARCHIVO_PRESTAMOS, prestamos)
 
-    print("Préstamo registrado correctamente.")
+    print(" Préstamo registrado correctamente.")
     print(f"ID del préstamo: {prestamo['id']}")
 
-    def registrar_devolucion():
-     prestamos = cargar_datos(ARCHIVO_PRESTAMOS)
+
+def registrar_devolucion():
+    prestamos = cargar_datos(ARCHIVO_PRESTAMOS)
 
     print("\n--- REGISTRAR DEVOLUCIÓN ---")
 
     try:
         id_prestamo = int(input("ID del préstamo: ").strip())
     except ValueError:
-        print("El ID debe ser un número.")
+        print(" El ID debe ser un número.")
         return
 
     prestamo_encontrado = None
@@ -76,12 +76,12 @@ def registrar_prestamo():
 
     
     if prestamo_encontrado is None:
-        print("No existe un préstamo con ese ID.")
+        print(" No existe un préstamo con ese ID.")
         return
 
     
     if prestamo_encontrado["estado"] != "Activo":
-        print("Este préstamo ya fue devuelto.")
+        print(" Este préstamo ya fue devuelto.")
         return
 
     codigo_equipo = prestamo_encontrado["codigo_equipo"]
@@ -92,21 +92,23 @@ def registrar_prestamo():
         "%Y-%m-%d %H:%M:%S"
     )
 
-    
+    # Cambiar equipo nuevamente a disponible
     actualizar_estado_equipo(codigo_equipo, "Disponible")
 
     guardar_datos(ARCHIVO_PRESTAMOS, prestamos)
 
-    print("Devolución registrada correctamente.")
+    print(" Devolución registrada correctamente.")
     print(f"Equipo {codigo_equipo} ahora está disponible.")
 
-    def generar_id_prestamo(prestamos):
-     if not prestamos:
+
+def generar_id_prestamo(prestamos):
+    if not prestamos:
         return 1
 
     ids = [prestamo["id"] for prestamo in prestamos]
 
     return max(ids) + 1
+
 
 def listar_prestamos():
     prestamos = cargar_datos(ARCHIVO_PRESTAMOS)
@@ -126,4 +128,3 @@ def listar_prestamos():
             f"Devolución: {prestamo['fecha_devolucion']} | "
             f"Estado: {prestamo['estado']}"
         )
-
