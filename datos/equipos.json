@@ -1,1 +1,9 @@
-[]
+[
+    {
+        "codigo": "99",
+        "tipo": "nuevo",
+        "marca": "apple",
+        "modelo": "m4",
+        "estado": "Disponible"
+    }
+]

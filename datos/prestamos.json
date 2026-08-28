@@ -1,1 +1,10 @@
-[]
+[
+    {
+        "id": 1,
+        "documento_estudiante": "1097789457",
+        "codigo_equipo": "99",
+        "fecha_prestamo": "2026-08-27 19:08:30",
+        "fecha_devolucion": "2026-08-27 19:08:58",
+        "estado": "Devuelto"
+    }
+]
